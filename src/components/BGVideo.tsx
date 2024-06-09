@@ -1,7 +1,9 @@
-import { useEffect, useRef } from "react";
-import bgvid from "../assets/movie4.mp4";
+// import { useEffect, useRef } from "react";
+// import bgvid from "../assets/movie4.mp4";
 import logo from "../assets/temple-logo.png";
 // import anilogo from "../assets/anilogo2.mp4";
+// import rise from "../assets/rise.png";
+import whitedown from "../assets/whitedown.png";
 
 const BackgroundVideo = ({
   hasTouched,
@@ -15,31 +17,32 @@ const BackgroundVideo = ({
   // const hideAnimationContainerClass =
   //   hasTouched && !isVideoVisible ? "hide" : "";
 
-  const videoRef = useRef(null);
+  // const videoRef = useRef(null);
 
-  useEffect(() => {
-    const video: any = videoRef.current;
+  // useEffect(() => {
+  //   const video: any = videoRef.current;
 
-    const playVideo = () => {
-      if (video && video.paused) {
-        video.play().catch((error: any) => {
-          console.error("Error attempting to play", error);
-        });
-      }
-    };
+  //   const playVideo = () => {
+  //     if (video && video.paused) {
+  //       video.play().catch((error: any) => {
+  //         console.error("Error attempting to play", error);
+  //       });
+  //     }
+  //   };
 
-    video.addEventListener("canplay", playVideo);
+  //   video.addEventListener("canplay", playVideo);
 
-    playVideo();
+  //   playVideo();
 
-    // Clean up event listener on component unmount
-    return () => {
-      video.removeEventListener("canplay", playVideo);
-    };
-  }, []);
+  //   // Clean up event listener on component unmount
+  //   return () => {
+  //     video.removeEventListener("canplay", playVideo);
+  //   };
+  // }, []);
   return (
     <div className="video-container blur-borders">
-      <video
+      <img src={whitedown} alt="background" className="video-bg" />
+      {/* <video
         ref={videoRef}
         className="video-bg"
         autoPlay
@@ -50,7 +53,7 @@ const BackgroundVideo = ({
       >
         <source src={bgvid} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
       <div className="overlay-desktop">
         <h1 className="misty-text">Tuning Temple</h1>
         <div className="logo-container misty-image">
