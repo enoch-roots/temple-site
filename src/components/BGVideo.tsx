@@ -30,6 +30,8 @@ const BackgroundVideo = ({
 
     video.addEventListener("canplay", playVideo);
 
+    playVideo();
+
     // Clean up event listener on component unmount
     return () => {
       video.removeEventListener("canplay", playVideo);
