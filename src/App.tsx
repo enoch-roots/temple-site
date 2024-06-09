@@ -19,7 +19,8 @@ function App() {
   //   setHasTouched(true);
   // };
 
-  const lockoutClass = isVideoVisible ? "lockout" : "";
+  // const lockoutClass = isVideoVisible ? "lockout" : "";
+  const lockoutClass = "";
 
   return (
     <div className={`App ${lockoutClass}`}>
