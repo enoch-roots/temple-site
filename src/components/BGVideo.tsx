@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import bgvid from "../assets/movie4.mp4";
 import logo from "../assets/temple-logo.png";
 // import anilogo from "../assets/anilogo2.mp4";
@@ -13,9 +14,37 @@ const BackgroundVideo = ({
 }) => {
   // const hideAnimationContainerClass =
   //   hasTouched && !isVideoVisible ? "hide" : "";
+
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video: any = videoRef.current;
+
+    const playVideo = () => {
+      if (video && video.paused) {
+        video.play().catch((error: any) => {
+          console.error("Error attempting to play", error);
+        });
+      }
+    };
+
+    video.addEventListener("canplay", playVideo);
+
+    // Clean up event listener on component unmount
+    return () => {
+      video.removeEventListener("canplay", playVideo);
+    };
+  }, []);
   return (
     <div className="video-container blur-borders">
-      <video className="video-bg" autoPlay loop muted>
+      <video
+        ref={videoRef}
+        className="video-bg"
+        autoPlay
+        loop
+        muted
+        playsInline
+      >
         <source src={bgvid} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

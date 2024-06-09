@@ -479,6 +479,10 @@ a {
   visibility: hidden;
   display: none;
   overflow-x: hidden;
+  opacity: 0; /* Make it fully transparent */
+  width: 0; /* Reduce its width to 0 */
+  height: 0; /* Reduce its height to 0 */
+  pointer-events: none; /* Disable any interaction with the video */
 
   video {
     // width: 100%;
@@ -490,6 +494,10 @@ a {
     visibility: visible;
     display: flex;
     // width: 100vw;
+    opacity: 1;
+    height: 100%;
+    width: 100vw;
+    pointer-events: initial;
   }
 }
 
