@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import BackgroundVideo from "./components/BGVideo";
+// import Navbar from "./components/Navbar";
+import FullPhoto from "./components/FullPhoto";
+import FullPhoto2 from "./components/FullPhoto2";
+import BlocksContainer from "./components/BlocksContainer";
+import { CoverVid } from "./components/CoverVid";
+import { useState } from "react";
+import { Footer } from "./components/Footer";
 
 function App() {
+  const [hasTouched, setHasTouched] = useState(false);
+  const [isVideoVisible, setIsVideoVisible] = useState(true);
+  const handleVideoEnd = () => {
+    setIsVideoVisible(false);
+  };
+  const handleTouch = () => {
+    setHasTouched(true);
+  };
+
+  const lockoutClass = isVideoVisible ? "lockout" : "";
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${lockoutClass}`}>
+      {/* <Navbar /> */}
+      <BackgroundVideo
+        hasTouched={hasTouched}
+        isVideoVisible={isVideoVisible}
+        handleVideoEnd={handleVideoEnd}
+      />
+      <FullPhoto />
+
+      <FullPhoto2 />
+      <BlocksContainer />
+      <CoverVid
+        hasTouched={hasTouched}
+        handleTouch={handleTouch}
+        isVideoVisible={isVideoVisible}
+      />
+      <Footer />
     </div>
   );
 }
