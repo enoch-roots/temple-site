@@ -4,7 +4,6 @@ import purple from "../assets/purple.png";
 import whitedown from "../assets/whitedown.png";
 import glow from "../assets/glow.png";
 import rise from "../assets/rise.png";
-import redout from "../assets/redout.png";
 
 import ImageBlock from "./ImageBlock";
 
