@@ -32,11 +32,11 @@ function App() {
 
       <FullPhoto2 />
       <BlocksContainer />
-      <CoverVid
+      {/* <CoverVid
         hasTouched={hasTouched}
         handleTouch={handleTouch}
         isVideoVisible={isVideoVisible}
-      />
+      /> */}
       <Footer />
     </div>
   );
