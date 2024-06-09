@@ -477,6 +477,7 @@ a {
   z-index: 100;
   filter: grayscale(100%);
   visibility: hidden;
+  display: none;
   overflow-x: hidden;
 
   video {
@@ -487,6 +488,7 @@ a {
 
   @media (max-width: 768px) {
     visibility: visible;
+    display: flex;
     // width: 100vw;
   }
 }
