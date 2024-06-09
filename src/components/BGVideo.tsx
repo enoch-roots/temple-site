@@ -46,6 +46,7 @@ const BackgroundVideo = ({
         loop
         muted
         playsInline
+        controls={false}
       >
         <source src={bgvid} type="video/mp4" />
         Your browser does not support the video tag.
