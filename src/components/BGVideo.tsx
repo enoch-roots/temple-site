@@ -74,6 +74,7 @@ const BackgroundVideo = ({
         {/* {!hasTouched && ( */}
         <div className="logo-container misty-image">
           <img src={logo} alt="logo" className="temple-logo misty-image" />
+          <p>breathe in...</p>
         </div>
         {/* )} */}
       </div>
