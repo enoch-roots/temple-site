@@ -31,7 +31,6 @@ function App() {
         handleVideoEnd={handleVideoEnd}
       />
       <FullPhoto />
-
       <FullPhoto2 />
       <BlocksContainer />
       {/* <CoverVid
