@@ -54,6 +54,9 @@ const BackgroundVideo = ({
         <source src={bgvid} type="video/mp4" />
         Your browser does not support the video tag.
       </video> */}
+      {/* <div className="dot-container">
+        <div className="dot" />
+      </div> */}
       <div className="overlay-desktop">
         <h1 className="misty-text">Tuning Temple</h1>
         <div className="logo-container misty-image">
@@ -75,7 +78,6 @@ const BackgroundVideo = ({
         {/* {!hasTouched && ( */}
         <div className="logo-container misty-image">
           <img src={logo} alt="logo" className="temple-logo misty-image" />
-          <p>breathe in...</p>
         </div>
         {/* )} */}
       </div>
