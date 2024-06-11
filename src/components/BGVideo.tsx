@@ -61,7 +61,6 @@ const BackgroundVideo = ({
         <h1 className="misty-text">Tuning Temple</h1>
         <div className="logo-container misty-image">
           <img src={logo} alt="logo" className="temple-logo misty-image" />
-          breathe in...
         </div>
         <p></p>
       </div>
