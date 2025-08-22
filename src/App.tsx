@@ -7,6 +7,8 @@ import BlocksContainer from "./components/BlocksContainer";
 // import { CoverVid } from "./components/CoverVid";
 import { useState } from "react";
 import { Footer } from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BookingPage from "./components/BookingPage";
 
 function App() {
   // const [hasTouched, setHasTouched] = useState(false);
@@ -22,7 +24,7 @@ function App() {
   // const lockoutClass = isVideoVisible ? "lockout" : "";
   const lockoutClass = "";
 
-  return (
+  const HomePage = () => (
     <div className={`App ${lockoutClass}`}>
       {/* <Navbar /> */}
       <BackgroundVideo
@@ -40,6 +42,15 @@ function App() {
       /> */}
       <Footer />
     </div>
+  );
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/booking" element={<BookingPage />} />
+      </Routes>
+    </Router>
   );
 }
 
