@@ -1,6 +1,6 @@
 import "./App.scss";
 import BackgroundVideo from "./components/BGVideo";
-// import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar";
 import FullPhoto from "./components/FullPhoto";
 import FullPhoto2 from "./components/FullPhoto2";
 import BlocksContainer from "./components/BlocksContainer";
@@ -26,7 +26,6 @@ function App() {
 
   const HomePage = () => (
     <div className={`App ${lockoutClass}`}>
-      {/* <Navbar /> */}
       <BackgroundVideo
         hasTouched={hasTouched}
         isVideoVisible={isVideoVisible}
@@ -46,6 +45,7 @@ function App() {
 
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/booking" element={<BookingPage />} />
