@@ -63,12 +63,15 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="booking-page">
-      <div className="booking-container">
-        <button className="back-btn" onClick={() => navigate("/")}>
-          ← Back to Home
+    <div className="booking-page" onClick={() => navigate("/")}>
+      <div className="booking-container" onClick={(e) => e.stopPropagation()}>
+        <button
+          className="close-btn"
+          onClick={() => navigate("/")}
+          title="Close"
+        >
+          ×
         </button>
-
         <div className="booking-content">
           <h1>Book Your Session</h1>
 

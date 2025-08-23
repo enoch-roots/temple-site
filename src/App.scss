@@ -792,34 +792,43 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   .booking-container {
     max-width: 800px;
     width: 100%;
     position: relative;
+    cursor: default;
 
-    .back-btn {
+    .close-btn {
       position: absolute;
       top: -1rem;
-      left: 0;
+      right: -1rem;
+      width: 3rem;
+      height: 3rem;
       background: rgba(255, 255, 255, 0.1);
-      color: $text-color;
       border: 2px solid rgba(255, 255, 255, 0.3);
-      padding: 0.75rem 1.5rem;
-      border-radius: 25px;
-      font-family: inherit;
-      font-size: 1rem;
+      border-radius: 50%;
+      color: $text-color;
+      font-size: 1.5rem;
+      font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+      backdrop-filter: blur(10px);
 
       &:hover {
         background: rgba(255, 255, 255, 0.2);
         border-color: rgba(255, 255, 255, 0.5);
-        transform: translateX(-5px);
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      }
+
+      &:active {
+        transform: scale(0.95);
       }
     }
 
@@ -830,7 +839,6 @@ a {
       border-radius: 20px;
       padding: 3rem;
       text-align: center;
-      margin-top: 3rem;
 
       h1 {
         font-size: 3rem;
@@ -1094,19 +1102,165 @@ a {
   }
 }
 
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 0;
+  transition: all 0.3s ease;
+
+  .navbar-container {
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+      }
+
+      .navbar-logo-img {
+        height: 40px;
+        width: auto;
+        filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        transition: filter 0.3s ease;
+
+        &:hover {
+          filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
+      }
+
+      .navbar-text {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $text-color;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        letter-spacing: 1px;
+      }
+    }
+
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+
+      .navbar-link.book-now-nav {
+        background: linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.1)
+        );
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        color: $text-color;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.75rem 2rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+
+        &:hover {
+          background: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.3),
+            rgba(255, 255, 255, 0.2)
+          );
+          border-color: rgba(255, 255, 255, 0.5);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+          text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+        }
+
+        &.active {
+          background: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 0.4),
+            rgba(255, 255, 255, 0.3)
+          );
+          border-color: rgba(255, 255, 255, 0.6);
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+}
+
+/* Add top padding to main content to account for fixed navbar */
+.App {
+  padding-top: 80px;
+}
+
+.booking-page {
+  padding-top: 80px;
+}
+
 @media (max-width: 768px) {
+  .navbar {
+    padding: 0.6rem 0;
+
+    .navbar-container {
+      padding: 0 1rem;
+
+      .navbar-logo {
+        .navbar-logo-img {
+          height: 35px;
+        }
+
+        .navbar-text {
+          font-size: 1.3rem;
+        }
+      }
+
+      .navbar-menu {
+        .navbar-link.book-now-nav {
+          font-size: 0.9rem;
+          padding: 0.6rem 1.5rem;
+        }
+      }
+    }
+  }
+
+  /* Adjust top padding for mobile navbar height */
+  .App {
+    padding-top: 80px;
+  }
+
   .booking-page {
+    padding-top: 80px;
     padding: 1rem;
 
     .booking-container {
-      .back-btn {
-        position: static;
-        margin-bottom: 2rem;
+      .close-btn {
+        top: -0.5rem;
+        right: -0.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
       }
 
       .booking-content {
         padding: 2rem 1.5rem;
-        margin-top: 0;
 
         h1 {
           font-size: 2.5rem;
